@@ -20,6 +20,8 @@ public class StreamsExample1 {
                 new Person("Matthew", "Arnold", 39)
         );
 
+        // ----- count(); -----
+
         /*people.stream()
                 .filter(p -> p.getLastName().startsWith("C"))
                 .forEach( p -> System.out.println(p.getFirstName()));*/
@@ -50,6 +52,12 @@ public class StreamsExample1 {
                 .filter(value -> isDigit(value.charAt(0)))
                 .collect(toList());
         System.out.println(beginningWithNumbers); // 1abc
+
+        // --- flatMap ---
+        List<Integer> together = Stream.of(Arrays.asList(1, 2), Arrays.asList(3, 4))
+                .flatMap(numbers -> numbers.stream())
+                .collect(toList());
+        System.out.println(together); // 1, 2, 3, 4
 
     }
 }
