@@ -98,5 +98,10 @@ public class StreamsExample1 {
 
         System.out.println(sum); // 6
 
+        int sum1 = Stream.of(1, 2, 3)
+                .reduce(0, Integer::sum);
+
+        System.out.println(sum1); // 6
+
     }
 }
