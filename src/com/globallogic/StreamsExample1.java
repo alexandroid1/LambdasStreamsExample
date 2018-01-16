@@ -63,16 +63,31 @@ public class StreamsExample1 {
                 .collect(toList());
         System.out.println(together); // 1, 2, 3, 4
 
-        // --- max и min ---
+        // --- max & min ---
         List<Track> tracks = Arrays.asList(new Track("Bakai", 524),
                 new Track("Violets for Your Furs", 378),
                 new Track("Time Was", 451));
 
-        Track shortestTrack = tracks.stream()
-                .min(Comparator.comparing(track -> track.getLenghtOfSong()))
-                .get();
+        //example with for
+        Track shortestTrack = tracks.get(0);
+        for (Track track : tracks) {
+            if (track.getLenght() < shortestTrack.getLenght()) { shortestTrack = track;
+            } }
 
         System.out.println(shortestTrack); // "Violets for Your Furs", 378
+
+        //example with lambda
+        Track shortestTrack1 = tracks.stream()
+                .min(Comparator.comparing(track -> track.getLenght()))
+                .get();
+
+        System.out.println(shortestTrack1); // "Violets for Your Furs", 378
+
+        // --- reduce ---
+        int sum = Stream.of(1, 2, 3)
+                .reduce(0, (acc, element) -> acc + element);
+
+        System.out.println(sum); // 6
 
     }
 }

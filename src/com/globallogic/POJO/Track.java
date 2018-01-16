@@ -11,19 +11,19 @@ public class Track {
         this.lenghtOfSong = lenghtOfSong;
     }
 
-    public String getNameOfSong() {
+    public String getName() {
         return nameOfSong;
     }
 
-    public void setNameOfSong(String nameOfSong) {
+    public void setName(String nameOfSong) {
         this.nameOfSong = nameOfSong;
     }
 
-    public int getLenghtOfSong() {
+    public int getLenght() {
         return lenghtOfSong;
     }
 
-    public void setLenghtOfSong(int lenghtOfSong) {
+    public void setLenght(int lenghtOfSong) {
         this.lenghtOfSong = lenghtOfSong;
     }
 
