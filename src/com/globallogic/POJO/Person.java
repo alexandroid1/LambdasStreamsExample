@@ -1,4 +1,4 @@
-package com.globallogic;
+package com.globallogic.POJO;
 
 public class Person {
 

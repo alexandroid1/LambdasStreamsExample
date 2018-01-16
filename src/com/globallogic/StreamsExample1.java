@@ -1,9 +1,11 @@
 package com.globallogic;
 
-import java.util.ArrayList;
+import com.globallogic.POJO.Person;
+import com.globallogic.POJO.Track;
+
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.lang.Character.isDigit;
@@ -12,6 +14,10 @@ import static java.util.stream.Collectors.toList;
 public class StreamsExample1 {
 
     public static void main(String[] args) {
+
+
+        // ----- count(); -----
+
         List<Person> people = Arrays.asList(
                 new Person("Charles", "Dickens", 60),
                 new Person("Lewis", "Carroll", 42),
@@ -19,8 +25,6 @@ public class StreamsExample1 {
                 new Person("Charlotte", "Bronte", 45),
                 new Person("Matthew", "Arnold", 39)
         );
-
-        // ----- count(); -----
 
         /*people.stream()
                 .filter(p -> p.getLastName().startsWith("C"))
@@ -58,6 +62,17 @@ public class StreamsExample1 {
                 .flatMap(numbers -> numbers.stream())
                 .collect(toList());
         System.out.println(together); // 1, 2, 3, 4
+
+        // --- max и min ---
+        List<Track> tracks = Arrays.asList(new Track("Bakai", 524),
+                new Track("Violets for Your Furs", 378),
+                new Track("Time Was", 451));
+
+        Track shortestTrack = tracks.stream()
+                .min(Comparator.comparing(track -> track.getLenghtOfSong()))
+                .get();
+
+        System.out.println(shortestTrack); // "Violets for Your Furs", 378
 
     }
 }
