@@ -84,8 +84,17 @@ public class StreamsExample1 {
         System.out.println(shortestTrack1); // "Violets for Your Furs", 378
 
         // --- reduce ---
+
+        //example with for
+        int acc = 0;
+        for (Integer element : Arrays.asList(1, 2, 3)) {
+            acc = acc + element; }
+
+        System.out.println(acc); // 6
+
+        //example with lambda
         int sum = Stream.of(1, 2, 3)
-                .reduce(0, (acc, element) -> acc + element);
+                .reduce(0, (acc1, element) -> acc1 + element);
 
         System.out.println(sum); // 6
 
